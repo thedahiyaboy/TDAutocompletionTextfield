@@ -14,12 +14,11 @@ class ViewController: UIViewController {
     //MARK:
     //MARK: IBOutlet
     
-    
+    var mySearchTF : TDAutocompletionTextfield = TDAutocompletionTextfield()
     
     @IBOutlet var searchTextfield: TDAutocompletionTextfield!
    
-    @IBOutlet var thirdTF: TDAutocompletionTextfield!
-    @IBOutlet var mySecondTF: TDAutocompletionTextfield!
+    
     //MARK:
     //MARK: Properties
     
@@ -32,10 +31,30 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-     searchTextfield.initWith(self, apiKey: apiKey, forCountryCode: nil) { (result) in
-            print(result)
-      }
+        searchTextfield.isHidden = true
+        searchTextfield.isUserInteractionEnabled = false
+        
+        
+        
+    // searchTextfield.initWith(self, apiKey: apiKey, forCountryCode: nil) { (result) in
+     //       print(result)
+   //   }
      
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        mySearchTF.frame = searchTextfield.frame
+        mySearchTF.backgroundColor = UIColor.yellow
+        
+        
+        self.view.addSubview(mySearchTF)
+        
+        
+         mySearchTF.initWith(self, apiKey: apiKey, forCountryCode: nil) { (result) in
+               print(result)
+           }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -44,12 +44,17 @@ class TDAutocompletionTextfield: UITextField, UITextFieldDelegate , UITableViewD
         self.tblSearchResult.register(TblSearchResultCell.classForCoder(), forCellReuseIdentifier: cellID)
        
         self.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        self.addTarget(self, action: #selector(textFieldDidBeginEditing(_:)), for: .editingDidBegin)
         NotificationCenter.default.addObserver(self, selector: #selector(self.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         
         selectedPlaceLocal = selectedPlace
         
         self.tfFrame = CGRect(x: 0, y: 0, width: 0, height: 0)
         
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -88,7 +93,7 @@ class TDAutocompletionTextfield: UITextField, UITextFieldDelegate , UITableViewD
         }
     }
     
-    public func textFieldDidBeginEditing(_ textField: UITextField) {
+     func textFieldDidBeginEditing(_ textField: UITextField) {
        
         self.tfFrame = self.superview?.convert(self.frame, to: self.activeVC?.view)
         
