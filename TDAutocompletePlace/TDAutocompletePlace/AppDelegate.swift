@@ -9,6 +9,17 @@
 
 // Google API : AIzaSyB_6oFB8M5r6WIGwZtP717EaLUFf5li7J8
 
+/*
+ 
+ application:​perform​Action​For​Shortcut​Item:​completion​Ha‌​‌​‌​ndler:​. What the difference between: 
+ 
+ func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: Bool -> Void) { completionHandler(true) }
+ 
+ 
+ func application(application: UIApplication, performActionForShortcutItem shortcutItem: UIApplicationShortcutItem, completionHandler: Bool -> Void) { completionHandler(false) }
+ 
+ */
+
 import UIKit
 
 @UIApplicationMain
@@ -22,6 +33,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+                                       
+        
+        completionHandler(true)
+        
+        
+    }
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

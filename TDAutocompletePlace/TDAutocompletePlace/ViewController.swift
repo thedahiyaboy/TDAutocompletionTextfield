@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     //MARK:
     //MARK: Properties
     
-    let apiKey = "AIzaSyBIFOjnmF6zdtduZO9YLS5ZLXbt9n7xYic"
+    let apiKey = "your_google_place_apiKey"
     
     //MARK:
     //MARK: VDL
